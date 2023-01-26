@@ -1,9 +1,6 @@
-import { ApiProperty } from '@nestjs/swagger';
-
-export class ISaveLinkReq {
-  @ApiProperty()
+export interface ISaveLinkReq {
   url: string;
-  @ApiProperty()
+
   newUrl: string;
 }
 export interface ISaveLinkRes {
@@ -11,8 +8,7 @@ export interface ISaveLinkRes {
   newUrl: string;
 }
 
-export class IUpdateVisitorGetLinkReq {
-  @ApiProperty()
+export interface IUpdateVisitorGetLinkReq {
   short: string;
 }
 export interface IUpdateVisitorGetLinkRes {

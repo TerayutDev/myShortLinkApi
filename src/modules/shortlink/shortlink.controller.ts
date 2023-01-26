@@ -1,12 +1,15 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+
 import { ShortLinkBusiness } from './shortlink.business';
 import { ISaveLinkReq, IUpdateVisitorGetLinkReq } from './shortlink.interface';
 
 @Controller('shortlink')
-@ApiTags('shortlink')
 export class ShortLinkController {
   constructor(private _shortlinkBusiness: ShortLinkBusiness) {}
+  @Get('Test')
+  testGet() {
+    return 'API Running';
+  }
   @Post('saveLink')
   async saveLink(@Body() request: ISaveLinkReq) {
     return await this._shortlinkBusiness.saveLink(request);
